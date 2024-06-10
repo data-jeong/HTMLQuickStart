@@ -1,5 +1,5 @@
 title: HTMLQuickStart
 description: HTML을 3시간 만에 배우기 위한 프로젝트
-baseurl: "" # 프로젝트가 root에 위치할 경우 비워둡니다.
-url: "https://yourusername.github.io" # 여기에는 GitHub Pages URL을 적습니다.
+baseurl: "/HTMLQuickStart" # 프로젝트가 root에 위치할 경우 비워둡니다.
+url: "data-jeong.github.io" # 여기에는 GitHub Pages URL을 적습니다.
 theme: minima # 기본 Jekyll 테마
