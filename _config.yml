@@ -3,3 +3,23 @@ description: HTML을 3시간 만에 배우기 위한 프로젝트
 baseurl: "/HTMLQuickStart" # 프로젝트가 root에 위치할 경우 비워둡니다.
 url: "data-jeong.github.io" # 여기에는 GitHub Pages URL을 적습니다.
 theme: minima # 기본 Jekyll 테마
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+  syntax_highlighter: rouge
+
+  syntax_highlighter_opts:
+    #line_numbers: true
+    line_format: "%i"
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
