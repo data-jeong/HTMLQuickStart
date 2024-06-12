@@ -28,19 +28,130 @@ HTML 문서는 기본적으로 다음과 같은 구조를 가지고 있습니다
 </html>
 ```
 
-### `<!DOCTYPE>` 선언
+### 2.`<!DOCTYPE>` 선언
 
 `<!DOCTYPE>` 선언은 HTML 문서의 가장 첫 줄에 위치하며, 웹 브라우저에게 현재 문서가 HTML5 문서임을 알려줍니다. 이를 통해 웹 브라우저는 HTML5 표준에 맞게 문서를 해석하고 렌더링합니다.
 
-### `<html>` 태그
+### 3.`<html>` 태그
 
 `<html>` 태그는 HTML 문서의 루트(root) 요소로, 문서의 시작과 끝을 나타냅니다. 모든 HTML 요소는 `<html>` 태그 내부에 위치해야 합니다.
 
-### `<head>` 태그
+---
+
+### 4.`<head>` 태그
 
 `<head>` 태그는 문서의 메타데이터(metadata)를 포함하는 영역입니다. 메타데이터는 문서 제목, 인코딩 방식, 외부 파일 링크 등 문서에 대한 정보를 담고 있습니다. `<head>` 태그 내부에는 `<title>`, `<meta>`, `<link>`, `<style>`, `<script>` 등의 태그가 올 수 있습니다.
 
-### `<body>` 태그
+1. `<title>` 태그
+
+```html
+<head>
+  <title>나의 웹페이지</title>
+</head>
+```
+
+- `<title>` 태그는 문서의 제목을 나타내는 태그입니다.
+- 브라우저의 제목 표시줄이나 탭에 이 제목이 표시됩니다.
+- 검색 엔진은 이 제목을 웹페이지의 주요 정보로 인식하므로, 제목은 웹페이지의 내용을 잘 설명할 수 있어야 합니다.
+
+2. `<meta>` 태그
+
+```html
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="HTML, CSS, JavaScript" />
+  <meta
+    name="description"
+    content="웹 개발에 대한 정보를 제공하는 사이트입니다."
+  />
+</head>
+```
+
+- `<meta>` 태그는 다양한 메타데이터를 정의하는데 사용됩니다.
+- `charset` 속성은 문서의 문자 인코딩을 지정합니다. 위의 예시에서는 UTF-8 인코딩을 사용합니다.
+- `name` 속성은 메타데이터의 이름을, `content` 속성은 메타데이터의 값을 나타냅니다.
+- `viewport` 메타데이터는 모바일 기기에서 웹페이지가 어떻게 표시될지를 제어합니다. 위의 예시는 뷰포트 너비를 기기 너비로 설정하고, 초기 축적 비율을 1로 설정합니다.
+- `keywords`는 웹페이지의 핵심 키워드를, `description`은 웹페이지의 요약 설명을 나타냅니다. 이 정보는 검색 엔진 최적화(SEO)에 활용됩니다.
+
+3. `<link>` 태그
+
+```html
+<head>
+  <link rel="stylesheet" href="style.css" />
+</head>
+```
+
+- `<link>` 태그는 외부 리소스, 주로 CSS 파일과 웹페이지를 연결할 때 사용합니다.
+- `rel` 속성은 현재 문서와 연결된 문서 사이의 관계를 지정합니다. 위의 예시에서는 "stylesheet"로 설정되어 연결된 파일이 스타일시트임을 나타냅니다.
+- `href` 속성은 연결된 문서의 URL을 지정합니다.
+
+- 웹로고 등록
+  웹 로고는 일반적으로 `<head>` 태그 내부에 `<link>` 태그를 사용하여 등록합니다. 이를 파비콘(favicon)이라고 하며, 웹 브라우저의 주소 표시줄이나 북마크, 탭 등에 표시되는 작은 아이콘입니다.
+
+  1.  파비콘 이미지 준비:
+
+      - 파비콘은 일반적으로 16x16, 32x32, 또는 64x64 픽셀 크기의 이미지입니다.
+      - 파비콘은 대부분 ICO, PNG, GIF 등의 이미지 포맷을 사용합니다.
+
+  1.  HTML 파일의 `<head>` 태그 내부에 파비콘 링크 추가:
+
+  ```html
+  <head>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/path/to/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/path/to/favicon-16x16.png"
+    />
+  </head>
+  ```
+
+  - `rel="icon"` 속성은 링크된 파일이 파비콘임을 나타냅니다.
+  - `type` 속성은 파비콘 이미지의 MIME 타입을 지정합니다. (예: `image/png`, `image/x-icon` 등) : 미디어 *타입* (Multipurpose Internet Mail Extensions 또는 _MIME type)
+  - `sizes` 속성은 파비콘 이미지의 크기를 나타냅니다.
+  - `href` 속성은 파비콘 이미지 파일의 경로를 지정합니다.
+
+4. `<style>` 태그
+
+```html
+<head>
+  <style>
+    body {
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+```
+
+- `<style>` 태그는 HTML 문서 내에 CSS를 직접 정의할 때 사용합니다.
+- 위의 예시에서는 `<body>` 태그에 대한 스타일을 정의하고 있습니다. 배경색을 #f0f0f0으로, 글꼴을 Arial 또는 기본 sans-serif 글꼴로 설정합니다.
+
+5. `<script>` 태그
+
+```html
+<head>
+  <script>
+    console.log("Hello, world!");
+  </script>
+  <script src="script.js"></script>
+</head>
+```
+
+- `<script>` 태그는 JavaScript 코드를 문서에 포함하거나 외부 JavaScript 파일을 연결할 때 사용합니다.
+- 첫 번째 `<script>` 태그는 문서 내에 JavaScript 코드를 직접 포함합니다. 위의 예시에서는 콘솔에 "Hello, world!"를 출력합니다.
+- 두 번째 `<script>` 태그는 `src` 속성을 사용하여 외부 JavaScript 파일인 "script.js"를 연결합니다.
+
+---
+
+### 5.`<body>` 태그
 
 `<body>` 태그는 웹 페이지에 실제로 표시되는 내용을 포함하는 영역입니다. 텍스트, 이미지, 비디오, 오디오, 링크 등 다양한 요소들이 `<body>` 태그 내부에 위치합니다.
 
@@ -60,203 +171,129 @@ HTML 기본 구조의 동작 원리를 아스키 아트로 표현하면 다음�
 +------------------+
 ```
 
-## 2. 텍스트 태그와 속성
+`<body>` 태그는 HTML 문서의 주요 콘텐츠를 포함하는 영역으로, 웹 페이지에서 실제로 보이는 모든 요소들을 담고 있습니다. 다음은 `<body>` 태그 내부에서 자주 사용되는 태그와 그 용도입니다.
 
-HTML에서는 다양한 텍스트 태그를 사용하여 문서의 구조와 의미를 표현할 수 있습니다. 주요 텍스트 태그와 속성은 다음과 같습니다.
-
-### 제목 태그 (`<h1>` ~ `<h6>`)
-
-제목 태그는 문서의 제목이나 부제목을 나타내는 데 사용됩니다. `<h1>`부터 `<h6>`까지 6단계의 제목 태그가 있으며, 숫자가 작을수록 더 높은 수준의 제목을 의미합니다.
+1. 제목 태그 (`<h1>` ~ `<h6>`)
 
 ```html
-<h1>가장 큰 제목</h1>
-<h2>두 번째로 큰 제목</h2>
-<h3>세 번째로 큰 제목</h3>
-<h4>네 번째로 큰 제목</h4>
-<h5>다섯 번째로 큰 제목</h5>
-<h6>여섯 번째로 큰 제목</h6>
+<body>
+  <h1>이것은 가장 큰 제목입니다</h1>
+  <h2>이것은 두 번째로 큰 제목입니다</h2>
+  <h3>이것은 세 번째로 큰 제목입니다</h3>
+  ...
+  <h6>이것은 가장 작은 제목입니다</h6>
+</body>
 ```
 
-### 단락 태그 (`<p>`)
+- 제목 태그는 텍스트 콘텐츠의 제목을 나타내는 데 사용됩니다.
+- `<h1>`이 가장 큰 제목을, `<h6>`이 가장 작은 제목을 나타냅니다.
+- 제목 태그는 문서의 구조와 콘텐츠의 계층을 나타내는 데 도움이 됩니다.
 
-단락 태그는 문서의 단락을 나타내는 데 사용됩니다. 단락 간에는 자동으로 빈 줄이 삽입되어 시각적으로 구분됩니다.
+2. 단락 태그 (`<p>`)
 
 ```html
-<p>첫 번째 단락입니다.</p>
-<p>두 번째 단락입니다.</p>
+<body>
+  <p>이것은 첫 번째 단락입니다.</p>
+  <p>이것은 두 번째 단락입니다.</p>
+</body>
 ```
 
-### 텍스트 서식 태그
+- `<p>` 태그는 텍스트 단락을 나타내는 데 사용됩니다.
+- 각 `<p>` 태그는 새로운 단락을 시작합니다.
 
-텍스트 서식 태그는 텍스트의 모양이나 의미를 지정하는 데 사용됩니다.
-
-- `<b>`, `<strong>`: 굵은 글씨 (bold)
-- `<i>`, `<em>`: 기울임꼴 (italic)
-- `<u>`: 밑줄 (underline)
-- `<s>`, `<del>`: 취소선 (strikethrough)
-- `<sup>`: 위 첨자 (superscript)
-- `<sub>`: 아래 첨자 (subscript)
+3. 이미지 태그 (`<img>`)
 
 ```html
-<p>이 텍스트는 <b>굵은</b> 글씨입니다.</p>
-<p>이 텍스트는 <i>기울임꼴</i>입니다.</p>
-<p>이 텍스트는 <u>밑줄</u>이 그어져 있습니다.</p>
-<p>이 텍스트는 <s>취소선</s>이 그어져 있습니다.</p>
-<p>X<sup>2</sup> + Y<sup>2</sup> = Z<sup>2</sup></p>
-<p>H<sub>2</sub>O는 물의 화학식입니다.</p>
+<body>
+  <img src="image.jpg" alt="이미지 설명" width="500" height="300" />
+</body>
 ```
 
-### 속성 (Attribute)
+- `<img>` 태그는 웹 페이지에 이미지를 삽입할 때 사용합니다.
+- `src` 속성은 이미지 파일의 URL을 지정합니다.
+- `alt` 속성은 이미지를 설명하는 대체 텍스트를 제공하며, 이미지가 로드되지 않았을 때 표시됩니다.
+- `width`와 `height` 속성은 이미지의 너비와 높이를 지정합니다. (단위: 픽셀)
 
-HTML 태그는 추가 정보를 제공하는 속성을 가질 수 있습니다. 속성은 태그 이름 뒤에 속성명="속성값" 형태로 작성합니다.
+4. 링크 태그 (`<a>`)
 
 ```html
-<p title="마우스를 올리면 보입니다">이 단락에는 title 속성이 있습니다.</p>
-<p style="color: blue;">이 단락은 파란색 텍스트입니다.</p>
-<p class="highlight">이 단락은 highlight 클래스를 가지고 있습니다.</p>
+<body>
+  <a href="https://www.example.com">이것은 링크입니다</a>
+</body>
 ```
 
-- `title`: 요소에 대한 추가 정보를 제공하며, 마우스를 올리면 툴팁(tooltip)으로 표시됩니다.
-- `style`: 요소에 직접 CSS 스타일을 적용합니다.
-- `class`: 요소에 클래스명을 지정하여 CSS 또는 JavaScript에서 선택할 수 있도록 합니다.
+- `<a>` 태그는 다른 웹 페이지, 파일, 이메일 주소, 또는 같은 페이지 내의 앵커 등 다른 URL로 연결할 때 사용합니다.
+- `href` 속성은 링크의 목적지 URL을 지정합니다.
 
-## 3. 링크와 이미지 태그
-
-HTML에서는 `<a>` 태그를 사용하여 다른 웹 페이지나 문서로 연결되는 하이퍼링크를 만들 수 있습니다. 또한 `<img>` 태그를 사용하여 이미지를 삽입할 수 있습니다.
-
-### 링크 태그 (`<a>`)
-
-`<a>` 태그는 하이퍼링크를 만드는 데 사용됩니다. `href` 속성을 사용하여 링크할 대상의 URL을 지정합니다.
+5. 목록 태그 (`<ul>`, `<ol>`, `<li>`)
 
 ```html
-<a href="https://www.example.com">링크 텍스트</a>
-<a href="other-page.html">다른 페이지로 이동</a>
-<a href="#section1">문서 내의 특정 위치로 이동</a>
+<body>
+  <ul>
+    <li>첫 번째 항목</li>
+    <li>두 번째 항목</li>
+    <li>세 번째 항목</li>
+  </ul>
+
+  <ol>
+    <li>첫 번째 항목</li>
+    <li>두 번째 항목</li>
+    <li>세 번째 항목</li>
+  </ol>
+</body>
 ```
 
-- 외부 URL 링크: `https://`, `http://`로 시작하는 절대 경로를 지정합니다.
-- 내부 페이지 링크: 같은 웹 사이트 내의 다른 HTML 파일명을 지정합니다.
-- 문서 내 링크: `#`으로 시작하는 요소의 `id` 속성값을 지정하여 문서 내의 특정 위치로 이동할 수 있습니다.
+- `<ul>` 태그는 순서가 없는 목록을, `<ol>` 태그는 순서가 있는 목록을 나타냅니다.
+- 목록의 각 항목은 `<li>` 태그로 표시합니다.
 
-### 이미지 태그 (`<img>`)
-
-`<img>` 태그는 웹 페이지에 이미지를 삽입하는 데 사용됩니다. `src` 속성을 사용하여 이미지 파일의 경로를 지정합니다.
+6. 테이블 태그 (`<table>`, `<tr>`, `<th>`, `<td>`)
 
 ```html
-<img src="image.jpg" alt="대체 텍스트" />
+<body>
+  <table>
+    <tr>
+      <th>헤더 1</th>
+      <th>헤더 2</th>
+    </tr>
+    <tr>
+      <td>데이터 1</td>
+      <td>데이터 2</td>
+    </tr>
+  </table>
+</body>
 ```
 
-- `src`: 이미지 파일의 경로를 지정합니다. 절대 경로 또는 상대 경로를 사용할 수 있습니다.
-- `alt`: 이미지를 표시할 수 없는 경우 대체 텍스트를 제공합니다. 접근성 및 SEO를 위해 중요합니다.
+- `<table>` 태그는 데이터를 행과 열로 구성된 테이블 형태로 표시할 때 사용합니다.
+- 테이블의 각 행은 `<tr>` 태그로, 각 열은 `<td>` 태그로 표시합니다.
+- `<th>` 태그는 테이블 헤더 셀을 나타냅니다.
 
-## 4. 리스트와 테이블 태그
-
-HTML에서는 리스트와 테이블을 만들기 위한 태그를 제공합니다. 리스트에는 순서가 있는 리스트(`<ol>`)와 순서가 없는 리스트(`<ul>`)가 있으며, 테이블은 `<table>` 태그를 사용하여 만들 수 있습니다.
-
-### 순서가 있는 리스트 (`<ol>`)
-
-`<ol>` 태그는 순서가 있는 리스트를 만드는 데 사용됩니다. 각 항목은 `<li>` 태그로 표현합니다.
+7. 폼 태그 (`<form>`, `<input>`, `<textarea>`, `<button>`)
 
 ```html
-<ol>
-  <li>첫 번째 항목</li>
-  <li>두 번째 항목</li>
-  <li>세 번째 항목</li>
-</ol>
+<body>
+  <form>
+    <label for="name">이름:</label>
+    <input type="text" id="name" name="name" /><br />
+
+    <label for="email">이메일:</label>
+    <input type="email" id="email" name="email" /><br />
+
+    <label for="message">메시지:</label>
+    <textarea id="message" name="message"></textarea><br />
+
+    <button type="submit">제출</button>
+  </form>
+</body>
 ```
 
-### 순서가 없는 리스트 (`<ul>`)
+- `<form>` 태그는 사용자로부터 입력을 받아 서버로 전송하는 데 사용됩니다.
+- `<input>` 태그는 다양한 유형의 사용자 입력을 받을 수 있습니다. (텍스트, 이메일, 비밀번호, 라디오 버튼, 체크박스 등)
+- `<textarea>` 태그는 여러 줄의 텍스트 입력을 받을 수 있습니다.
+- `<button>` 태그는 폼을 제출하거나 자바스크립트를 실행하는 등의 작업을 수행하는 버튼을 만듭니다.
 
-`<ul>` 태그는 순서가 없는 리스트를 만드는 데 사용됩니다. 각 항목은 `<li>` 태그로 표현합니다.
+위에서 언급한 태그들 외에도 `<div>`, `<span>`, `<iframe>`, `<video>`, `<audio>` 등 다양한 태그들이 `<body>` 태그 내부에서 사용될 수 있습니다. 이러한 태그들을 조합하여 웹 페이지의 구조를 만들고 콘텐츠를 표시할 수 있습니다.
 
-```html
-<ul>
-  <li>항목 1</li>
-  <li>항목 2</li>
-  <li>항목 3</li>
-</ul>
-```
-
-### 테이블 태그 (`<table>`)
-
-`<table>` 태그는 데이터를 행과 열로 구성된 테이블 형태로 표현하는 데 사용됩니다.
-
-```html
-<table>
-  <tr>
-    <th>헤더 1</th>
-    <th>헤더 2</th>
-  </tr>
-  <tr>
-    <td>데이터 1</td>
-    <td>데이터 2</td>
-  </tr>
-  <tr>
-    <td>데이터 3</td>
-    <td>데이터 4</td>
-  </tr>
-</table>
-```
-
-- `<tr>`: 테이블의 행(row)을 정의합니다.
-- `<th>`: 테이블의 헤더 셀을 정의합니다.
-- `<td>`: 테이블의 일반 셀
-  을 정의합니다.
-
-## 5. 폼(Form) 태그와 입력 요소
-
-HTML 폼은 사용자로부터 입력을 받아 서버로 전송하는 데 사용됩니다. 폼은 `<form>` 태그로 시작하며, 다양한 입력 요소를 포함할 수 있습니다.
-
-### 폼 태그 (`<form>`)
-
-`<form>` 태그는 사용자 입력을 받기 위한 HTML 폼을 정의합니다.
-
-```html
-<form action="/submit" method="post">
-  <!-- 입력 요소들 -->
-</form>
-```
-
-- `action`: 폼 데이터를 제출할 서버 URL을 지정합니다.
-- `method`: 폼 데이터를 전송할 HTTP 메서드(GET 또는 POST)를 지정합니다.
-
-### 입력 요소
-
-폼 내부에는 다양한 입력 요소를 사용하여 사용자로부터 데이터를 받을 수 있습니다.
-
-- `<input>`: 텍스트, 비밀번호, 체크박스, 라디오 버튼 등 다양한 타입의 입력을 받을 수 있습니다.
-- `<textarea>`: 여러 줄의 텍스트를 입력받을 수 있습니다.
-- `<select>`: 드롭다운 목록에서 옵션을 선택할 수 있습니다.
-- `<button>`: 폼을 제출하거나 자바스크립트 이벤트를 트리거할 수 있는 버튼을 만듭니다.
-
-```html
-<form>
-  <label for="name">이름:</label>
-  <input type="text" id="name" name="name" /><br />
-
-  <label for="email">이메일:</label>
-  <input type="email" id="email" name="email" /><br />
-
-  <label for="message">메시지:</label>
-  <textarea id="message" name="message"></textarea><br />
-
-  <input type="checkbox" id="subscribe" name="subscribe" />
-  <label for="subscribe">뉴스레터 구독</label><br />
-
-  <input type="radio" id="male" name="gender" value="male" />
-  <label for="male">남성</label>
-  <input type="radio" id="female" name="gender" value="female" />
-  <label for="female">여성</label><br />
-
-  <select name="country">
-    <option value="usa">미국</option>
-    <option value="canada">캐나다</option>
-    <option value="uk">영국</option></select
-  ><br />
-
-  <button type="submit">제출</button>
-</form>
-```
+---
 
 ## 6. 시맨틱 태그와 레이아웃
 
